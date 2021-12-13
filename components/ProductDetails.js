@@ -5,4 +5,10 @@ app.component('product-detail', {
             requeried: true
         }
     },
+    template:
+        /*html*/`
+            <ul>
+            <li v-for="detail in details">{{ detail }}</li>
+            </ul>
+        `
 })
