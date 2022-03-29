@@ -3,6 +3,23 @@ body {
   margin: 0px;
   font-family: tahoma;
   color: #282828;
+  padding: 10px;
+}
+
+iframe{
+  width: 800px;
+  height: 1200px;
+}
+
+table {
+  border-spacing: 0px;
+  border-collapse: separate;
+}
+
+td,
+th {
+  padding: 10px;
+  border: 1px solid black;
 }
 
 .button {

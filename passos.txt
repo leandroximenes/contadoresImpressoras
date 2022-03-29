@@ -1,0 +1,10 @@
+necessário: 
+* CURL
+* jsonrepair -> https://www.npmjs.com/package/jsonrepair
+
+curl http://10.67.26.173/sws/app/information/counters/counters.json -H "Accept: application/json" -o teste.json
+jsonrepair teste.json --overwrite
+
+
+
+http://10.67.26.171/web/guest/br/websys/status/getUnificationCounter.cgi

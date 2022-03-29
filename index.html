@@ -2,27 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Vue Mastery</title>
+    <title>Contador de impressoras da DOC</title>
     <!-- Import Styles -->
     <link rel="stylesheet" href="./assets/styles.css" />
     <!-- Import Vue.js -->
     <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div id="app">
-      <div class="nav-bar"></div>
-
-      <div class="cart">Cart({{ cart }})</div>
-      
-      <product-display :premium="premium"></product-display>      
+      <template v-for="(impressora, key) in impressoras">
+        <div style="background-color: white; padding: 10px; margin: 10px; width: 790px;">
+          <h3 text-align="right" style="text-align: right;">{{ impressora.titulo }}</h3>
+          <template v-if="impressora.marca === 'ricoh'">
+            <iframe :src="'ricoh.php?ip=' + impressora.ipFormatado" scrolling="no" frameborder="0"></iframe>
+          </template>
+          <template  v-else>
+            <sansung-data :ip="impressora.ipFormatado"></sansung-data>      
+          </template>
+      </div>
+      </template>
     </div>
-
     <!-- Import App -->
     <script src="./main.js"></script>
 
     <!-- Import Components -->
-    <script src="./components/ProductDisplay.js"></script>
-    <script src="./components/ProductDetails.js"></script>
+    <script src="./components/SansungData.js"></script>
 
     <!-- Mount App -->
     <script>
