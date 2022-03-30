@@ -8,14 +8,25 @@
     <!-- Import Vue.js -->
     <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+      h3{
+        page-break-after: avoid;
+        page-break-before: avoid;
+      }
+      .page {
+        page-break-after: always;
+        height:100%; 
+        page-break-before: always;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
       <template v-for="(impressora, key) in impressoras">
-        <div style="background-color: white; padding: 10px; margin: 10px; width: 790px;">
+        <div class="page" style="background-color: white; padding: 10px; margin: 10px; width: 790px;">
           <h3 text-align="right" style="text-align: right;">{{ impressora.titulo }}</h3>
           <template v-if="impressora.marca === 'ricoh'">
-            <iframe :src="'ricoh.php?ip=' + impressora.ipFormatado" scrolling="no" frameborder="0"></iframe>
+            <iframe style="height: 410px" :src="'ricoh.php?ip=' + impressora.ipFormatado" scrolling="no" frameborder="0"></iframe>
           </template>
           <template  v-else>
             <sansung-data :ip="impressora.ipFormatado"></sansung-data>      
